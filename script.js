@@ -1,22 +1,59 @@
 const trendingMoviesCont = document.querySelector(".trendings ul");
 const moviesForYouCont = document.querySelector(".movies-forr");
 
+const tabs = document.querySelectorAll(".mytabs a");
+
 const movieScroll = document.querySelector(".moviescroll");
 const trendScroll = document.querySelector(".trendscroll");
+
+const newPicksMov = document.querySelector(".movie-posters");
 
 const allMovCont = document.querySelector(".movies-forr ul li");
 
 const myApiKey = "c73159ae3e0b40cf0883d7a33c0fea7f";
 
+const loader = document.querySelector(".loader");
+
+window.addEventListener("load", () => {
+  loader.style.display = "none";
+});
+
 const myBackdrops = [];
 
-console.log(myBackdrops);
+const imageContainer = document.querySelector(".imgg");
+
+const searchMovies = document
+  .querySelector(".search")
+  .addEventListener("click", () => {
+    location.replace("./search.html");
+  });
+
+const mobileMenu = document.querySelector(".mobile");
+
+const hamburger = document
+  .querySelector(".hamburger")
+  .addEventListener("click", () => {
+    mobileMenu.style.display = "flex";
+  });
+
+const close = document.querySelector(".close").addEventListener("click", () => {
+  mobileMenu.style.display = "none";
+});
+
+tabs.forEach((item) => {
+  item.addEventListener("click", () => {
+    for (l of tabs) {
+      l.classList.remove("tab-active");
+    }
+    item.classList.add("tab-active");
+  });
+});
 
 // GET MOVIES FOR YOU FROM MY API
 
 const nowPlaying = async () => {
   const res = await fetch(
-    `https://api.themoviedb.org/3/movie/now_playing?api_key=${myApiKey}&language=en-US&page=1`
+    `https://api.themoviedb.org/3/movie/now_playing?api_key=${myApiKey}&language=en-US`
   );
   const data = await res.json();
 
@@ -30,6 +67,59 @@ nowPlaying().then((movies) => {
     const dropImg = myBackdrops.push(movie.backdrop_path);
 
     movieScroll.insertAdjacentHTML("beforeend", movieList);
+
+    const listBacks = bachtml(movie);
+
+    imageContainer.insertAdjacentHTML("beforeend", listBacks);
+
+    const slides = document.querySelectorAll(".imagee");
+    let currSlide = 0;
+
+    slides[currSlide].classList.add("move");
+
+    setInterval(() => {
+      // Hide the current slide
+      slides[currSlide].classList.remove("move");
+
+      // Move to the next slide
+      currSlide++;
+
+      // If we've reached the end, start over
+      if (currSlide >= slides.length) {
+        currSlide = 0;
+      }
+
+      // Show the next slide
+      slides[currSlide].classList.add("move");
+    }, 5000);
+  });
+});
+
+const bachtml = (imgs) => {
+  return `  <div class="backdrop-slide imagee">
+  <img src="https://image.tmdb.org/t/p/original/${imgs.backdrop_path}" alt="Backdrop">
+</div>`;
+};
+
+// GET upcoming from API
+
+const newPicks = async () => {
+  const res = await fetch(
+    `https://api.themoviedb.org/3/movie/top_rated?api_key=${myApiKey}&language=en-US&page=1`
+  );
+  const data = await res.json();
+
+  const newPickMov = data.results;
+
+  return newPickMov;
+};
+
+newPicks().then((movies) => {
+  const formov = movies.slice(0, 8);
+  formov.forEach((movie) => {
+    const listNewPicks = picksHtml(movie);
+
+    newPicksMov.insertAdjacentHTML("beforeend", listNewPicks);
   });
 });
 
@@ -37,7 +127,7 @@ nowPlaying().then((movies) => {
 
 const trendingMovies = async () => {
   const res = await fetch(
-    `https://api.themoviedb.org/3/trending/all/day?api_key=${myApiKey}&language=en-US&page=1`
+    `https://api.themoviedb.org/3/movie/popular?api_key=${myApiKey}&language=en-US&page=1`
   );
 
   const data = await res.json();
@@ -69,12 +159,14 @@ const dateFormatter = function (date) {
 const nowPlayingHtml = (mov) => {
   let url = "./moviedetail.html?id=" + encodeURIComponent(mov.id);
   return ` <li>
-  <a href=${url} class="posterlink"><img src="https://image.tmdb.org/t/p/w500/${
-    mov.poster_path
-  }"
+  <div class="images">
+  <a href=${url} class="posterlink">
+  <img src="https://image.tmdb.org/t/p/w500/${mov.poster_path}"
           alt="${mov.title}" class="poster" data-id="${mov.id}"
           onerror="this.onerror=null;this.src='./resources/D moviesand tv show.png';"
-          loading="lazy" alt="${mov.title || mov.name}"></a>
+          loading="lazy" alt="${mov.title || mov.name}">
+          </a>
+  </div>
 
   <div class="details">
       <p class="movietitle">${mov.title || mov.name}</p>
@@ -117,12 +209,15 @@ const nowPlayingHtml = (mov) => {
 const trendingHtml = (mov) => {
   let url = "./moviedetail.html?id=" + encodeURIComponent(mov.id);
   return ` <li>
+  <div class="images">
   <a href=${url} class="posterlink">
   <img src="https://image.tmdb.org/t/p/w500/${mov.poster_path}"
           alt="${mov.title}" class="poster" data-id="${mov.id}"
           onerror="this.onerror=null;this.src='./resources/D moviesand tv show.png';"
           loading="lazy" alt="${mov.title || mov.name}">
           </a>
+  </div>
+  
 
   <div class="details">
       <p class="movietitle">${mov.title || mov.name}</p>
@@ -156,6 +251,21 @@ const trendingHtml = (mov) => {
           </div>
           <div class="category">MOVIE</div>
       </div>
+  </div>
+</li>`;
+};
+
+// New Picks HTML
+const picksHtml = (mov) => {
+  let url = "./moviedetail.html?id=" + encodeURIComponent(mov.id);
+  return `    <li>
+  <div class="poster">
+  <a href=${url} class="posterlink">
+  <img src="https://image.tmdb.org/t/p/w500/${mov.poster_path}"
+          alt="${mov.title}" class="poster" data-id="${mov.id}"
+          onerror="this.onerror=null;this.src='./resources/D moviesand tv show.png';"
+          loading="lazy" alt="${mov.title || mov.name}">
+          </a>
   </div>
 </li>`;
 };
