@@ -26,7 +26,7 @@ searchInput.addEventListener("keyup", () => {
   searchVal = searchInput.value.trim();
   console.log(`search query: ${searchVal} (length: ${searchVal.length})`);
   if (searchVal === "") {
-    searchHead.textContent = `What are you searching for?`;
+    searchHead.textContent = `What are you searching for❓`;
     resultCont.innerHTML = "";
   } else {
     searchHead.textContent = `Search Results for: ${searchVal.toUpperCase()}`;
