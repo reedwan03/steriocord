@@ -215,9 +215,6 @@ const currMov = (mov) => {
                    ${theGen}
                 </ul>
                 <div class="other-det">
-                    <div class="runtime"><b>Episode runtime:</b>${
-                      mov.episode_run_time[0]
-                    } Minutes</div>
                     <div class="release"><b>Release date:</b>${dateFormatter(
                       mov.first_air_date
                     )}</div>
