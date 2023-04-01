@@ -12,11 +12,11 @@
 
 :root {
   --backgroundcolor: #09080a;
-  --lightbackgroundcolor: #0d0d17;
+  --lightbackgroundcolor: #0b0b1a;
   --outlinecolor: #25252e;
   --orange: #e36414;
   --darkpink: #9a031e;
-  --darkblue: #0f4c5c;
+  --darkblue: #0f4c5c;  
   --purple: #5f0f40;
   --white: #ffffff;
 }
@@ -67,10 +67,10 @@ body {
       // background: red;
       border-radius: 50px;
       margin: auto;
-      border-top: 15px solid var(--darkblue);
-      border-bottom: 15px solid var(--orange);
-      border-left: 15px solid var(--purple);
-      border-right: 15px solid var(--white);
+      border-top: 8px solid var(--darkblue);
+      border-bottom: 8px solid var(--orange);
+      border-left: 8px solid var(--purple);
+      border-right: 8px solid var(--white);
       animation: spin 1.5s linear infinite;
     }
 
@@ -117,8 +117,8 @@ body {
       align-items: center;
       justify-self: start;
       // background-color: red;
-      svg {
-        width: 110px;
+      img {
+        width: 100px;
       }
     }
 
@@ -431,7 +431,7 @@ body {
             }
 
             p {
-              font-weight: 200;
+              font-weight: lighter;
               font-size: 0.8rem;
             }
 
@@ -592,7 +592,7 @@ body {
           text-align: left;
           font-family: "BrotherJhonBoldItalic", sans-serif;
 
-          font-weight: 200;
+          // font-weight: 200;
           z-index: 1000;
           left: 0;
           right: 0;
@@ -601,6 +601,18 @@ body {
             text-transform: capitalize;
             // letter-spacing: -3px;
             line-height: 70px;
+            background: linear-gradient(
+              to right,
+              var(--darkblue),
+              rgb(9, 197, 197),
+              rgb(231, 231, 100),
+              rgb(231, 231, 100),
+              var(--orange),
+              var(--darkpink)
+            );
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-fill-color: transparent;
           }
         }
 
@@ -1436,7 +1448,7 @@ body {
           .close {
             display: block;
             cursor: pointer;
-            margin-bottom: 45px;
+            // margin-bottom: 45px;
             img {
               width: 20px;
               opacity: 20%;
@@ -1483,6 +1495,7 @@ body {
           border-bottom: 0px;
           font-weight: 700;
         }
+
         .searchnow {
           // background: red;
           form {
@@ -1580,8 +1593,8 @@ body {
 
       .hero {
         .slider {
-          display: block;
-          flex-direction: row;
+          display: flex;
+          flex-direction: column;
           height: 26rem;
           text-align: center;
           justify-content: center;
@@ -1698,7 +1711,9 @@ body {
 
           .pplay {
             position: absolute;
-            left: 40%;
+            left: 0;
+            right: 0;
+            margin: auto;
             margin-top: -55px;
           }
         }
@@ -1903,6 +1918,382 @@ body {
                 .info {
                   font-size: 7px;
                 }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 375px) {
+  body {
+    nav {
+      height: 75px;
+      padding: 30px;
+
+      a {
+        div {
+          .logo {
+            img {
+              width: 3rem;
+            }
+          }
+        }
+      }
+
+      .tab {
+        gap: 10px;
+
+        .hamburger {
+          img {
+            width: 1rem;
+          }
+        }
+
+        .searchnow {
+          // background: red;
+          form {
+            font-family: "bahnschrift";
+            font-size: 0.5rem;
+            input {
+              position: absolute;
+              left: 180px;
+              right: 95px;
+              top: 16px;
+              background: var(--lightbackgroundcolor);
+              outline: none;
+              width: 160px;
+            }
+          }
+        }
+
+        .mobile {
+          position: absolute;
+          padding: 10px;
+          top: 75px;
+          display: none;
+          align-items: center;
+
+          &::after {
+            content: "";
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            background: var(--purple);
+            right: 50px;
+            top: -5px;
+          }
+
+          .close {
+            img {
+              width: 1rem;
+            }
+          }
+
+          .main-menu {
+            display: flex;
+            gap: 5px;
+
+            a {
+              padding: 5px;
+              li {
+                font-size: 10px;
+              }
+            }
+          }
+        }
+      }
+
+      .search {
+        button {
+          width: 25px;
+          height: 25px;
+        }
+      }
+    }
+
+    .dashboard {
+      padding: 3px;
+
+      .tvseasdet {
+        padding: 20px;
+
+        .topper {
+          h1 {
+            font-size: 2rem;
+          }
+
+          .season-count {
+            font-size: 8px;
+            letter-spacing: 2px;
+          }
+        }
+
+        .theepis {
+          li {
+            .prevws {
+              width: 100%;
+              height: 100%;
+            }
+
+            .prev-det {
+              display: flex;
+              gap: 10px;
+
+              h3 {
+                font-size: 1.5rem;
+                font-weight: lighter;
+              }
+
+              p {
+                font-weight: normal;
+                font-size: 0.75rem;
+              }
+            }
+          }
+        }
+      }
+
+      .hero {
+        padding: 20px;
+        .slider {
+          display: flex;
+          flex-direction: column-reverse;
+          height: 25rem;
+          gap: -20px;
+          background: -moz-linear-gradient(
+            top,
+            rgba(0, 0, 0, 0) 0%,
+            var(--lightbackgroundcolor) 100%
+          ); /* FF3.6+ */
+          background: -webkit-gradient(
+            linear,
+            left top,
+            left bottom,
+            color-stop(0%, rgba(0, 0, 0, 0.65)),
+            color-stop(100%, var(--lightbackgroundcolor))
+          ); /* Chrome,Safari4+ */
+          background: -webkit-linear-gradient(
+            top,
+            rgba(0, 0, 0, 0) 0%,
+            var(--lightbackgroundcolor) 100%
+          ); /* Chrome10+,Safari5.1+ */
+          background: -o-linear-gradient(
+            top,
+            rgba(0, 0, 0, 0) 0%,
+            var(--lightbackgroundcolor) 100%
+          ); /* Opera 11.10+ */
+          background: -ms-linear-gradient(
+            top,
+            rgba(0, 0, 0, 0) 0%,
+            var(--lightbackgroundcolor) 100%
+          ); /* IE10+ */
+          background: linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0) 0%,
+            var(--lightbackgroundcolor) 55%
+          ); /* W3C */
+          filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', endColorstr='#00000000',GradientType=0 ); /* IE6-9 */
+
+          .hero-text {
+            padding: 2px;
+            line-height: 1px;
+            margin-top: -40px;
+            h1 {
+              font-size: 3.5rem;
+              line-height: 50px;
+            }
+          }
+        }
+
+        .movies-for-you {
+          .moviesnow {
+            ul {
+              padding: 0px;
+              .scroll-movies {
+                display: grid;
+                padding: 5px;
+              }
+
+              .scroll-movies {
+                display: grid;
+                grid-gap: 5px;
+              }
+            }
+          }
+        }
+      }
+
+      .heroo {
+        font-weight: normal;
+        .top-elements {
+          margin-bottom: 50px;
+          .backdrop {
+            border: 1px solid var(--outlinecolor);
+          }
+
+          .pplay {
+            width: 25px;
+            height: 25px;
+            position: absolute;
+            left: 0;
+            right: 0;
+            margin: auto;
+            margin-top: -55px;
+          }
+        }
+
+        .moviedetailsection {
+          padding: 20px;
+
+          .mymovdet {
+            display: grid;
+            img {
+              width: 120px;
+            }
+            .detailsnow {
+              display: grid;
+              .title {
+                font-size: 25px;
+                font-weight: lighter;
+              }
+              .genre-list {
+                font-weight: normal;
+                font-size: 2px;
+
+                li {
+                  font-size: 5px;
+                }
+
+                .other-det {
+                  font-weight: lighter;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .dash {
+      .movie-hero {
+        padding: 20px;
+        .titles {
+          .main-text {
+            p {
+              font-size: 0.7rem;
+              letter-spacing: 5px;
+            }
+
+            h1 {
+              font-size: 4rem;
+            }
+
+            svg {
+              margin-top: -35px;
+              width: 70px;
+            }
+          }
+        }
+
+        .genss {
+          margin-top: -20px;
+          .genre-list-new {
+            text-align: center;
+            font-size: 8px;
+            letter-spacing: 2px;
+          }
+        }
+
+        .listthemMovies {
+          text-align: center;
+          ul {
+            padding: 0px;
+            gap: 10px;
+            justify-content: center;
+            li {
+              display: grid;
+              gap: 10px;
+              width: 90px;
+              height: 100%;
+              padding: 4px;
+              justify-content: center;
+
+              .images {
+                width: 100%;
+                height: 150px;
+              }
+
+              img {
+                width: 100%;
+                height: 100%;
+              }
+
+              .details {
+                font-weight: normal;
+                width: 70px;
+                text-align: left;
+                .movietitle {
+                  font-weight: normal;
+                }
+
+                .info {
+                  font-size: 6px;
+                }
+              }
+            }
+          }
+        }
+
+        .nextprev {
+          div {
+            font-size: 9px;
+          }
+        }
+      }
+    }
+
+    .search-dash {
+      padding: 20px;
+      h3 {
+        font-size: 1rem;
+      }
+
+      .listthemMovies {
+        text-align: center;
+        ul {
+          padding: 0px;
+          gap: 10px;
+          justify-content: center;
+          li {
+            display: grid;
+            gap: 10px;
+            width: 90px;
+            height: 100%;
+            padding: 4px;
+            justify-content: center;
+
+            .images {
+              width: 100%;
+              height: 150px;
+            }
+
+            img {
+              width: 100%;
+              height: 100%;
+            }
+
+            .details {
+              font-weight: normal;
+              width: 70px;
+              text-align: left;
+              .movietitle {
+                font-weight: normal;
+              }
+
+              .info {
+                font-size: 6px;
               }
             }
           }
