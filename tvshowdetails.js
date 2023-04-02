@@ -155,26 +155,7 @@ const playBtn = (mov) => {
 
   return ` <span class="pplay">
   <a href=${url} class="plabtn">
-  <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="0.183197in" height="0.198622in"
-  version="1.1"
-  style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
-  viewBox="0 0 0.19 0.21" xmlns:xlink="http://www.w3.org/1999/xlink"
-  xmlns:xodm="http://www.corel.com/coreldraw/odm/2003">
-  <defs>
-      <style type="text/css">
-          <![CDATA[
-          .fil0 {
-              fill: white
-          }
-          ]]>
-      </style>
-  </defs>
-  <g id="Layer_x0020_1">
-      <metadata id="CorelCorpID_0Corel-Layer" />
-      <path class="fil0"
-          d="M0.07 0.02l0.09 0.06c0.03,0.01 0.04,0.05 0,0.06l-0.1 0.06c-0.04,0.02 -0.06,0.02 -0.07,-0.01l0 -0.16c0,-0.02 0.03,-0.04 0.07,-0.01z" />
-  </g>
-</svg>
+  <ion-icon name="play-circle"></ion-icon>
 </a>
 
   </span> `;
@@ -227,26 +208,7 @@ const currMov = (mov) => {
                 <div class="last">
                 <div class="watch">
                     
-                        <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="0.183197in"
-                            height="0.198622in" version="1.1"
-                            style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
-                            viewBox="0 0 0.19 0.21" xmlns:xlink="http://www.w3.org/1999/xlink"
-                            xmlns:xodm="http://www.corel.com/coreldraw/odm/2003">
-                            <defs>
-                                <style type="text/css">
-                                    <![CDATA[
-                                    .fil0 {
-                                        fill: #fffff
-                                    }
-                                    ]]>
-                                </style>
-                            </defs>
-                            <g id="Layer_x0020_1">
-                                <metadata id="CorelCorpID_0Corel-Layer" />
-                                <path class="fil0"
-                                    d="M0.07 0.02l0.09 0.06c0.03,0.01 0.04,0.05 0,0.06l-0.1 0.06c-0.04,0.02 -0.06,0.02 -0.07,-0.01l0 -0.16c0,-0.02 0.03,-0.04 0.07,-0.01z" />
-                            </g>
-                        </svg>
+                <ion-icon name="play-circle-outline"></ion-icon>
                     
                         <a href=${url} class="watchme"><div>Watch Now</div></a>
 
