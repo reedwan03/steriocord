@@ -48,7 +48,7 @@ const dateFormatter = function (date) {
   }
 };
 
-const myApiKey = "c73159ae3e0b40cf0883d7a33c0fea7f";
+const myApiKey = "c74f98f205cab4c2d3f6c1ff1729ff4d";
 
 let genHtml = "";
 let categoryID;
@@ -57,7 +57,7 @@ let initialPage = 1;
 // Get Genre List
 const myGenre = async () => {
   const res = await fetch(
-    ` https://api.themoviedb.org/3/genre/movie/list?api_key=c73159ae3e0b40cf0883d7a33c0fea7f`
+    ` https://api.themoviedb.org/3/genre/movie/list?api_key=c74f98f205cab4c2d3f6c1ff1729ff4d`
   );
   const data = await res.json();
 
