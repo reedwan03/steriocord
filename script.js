@@ -10,7 +10,7 @@ const newPicksMov = document.querySelector(".movie-posters");
 
 const allMovCont = document.querySelector(".movies-forr ul li");
 
-const myApiKey = "c73159ae3e0b40cf0883d7a33c0fea7f";
+const myApiKey = "c74f98f205cab4c2d3f6c1ff1729ff4d";
 
 const loader = document.querySelector(".loader");
 
